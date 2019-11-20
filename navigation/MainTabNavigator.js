@@ -68,27 +68,10 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
-// const PostStack = createStackNavigator(
-//   {
-//     Post: PostScreen,
-//   },
-//   config
-// );
-//
-// PostStack.navigationOptions = {
-//   tabBarLabel: 'Post',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-//   ),
-// };
-//
-// PostStack.path = '';
-
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
-  //PostStack,
  });
 
 tabNavigator.path = '';

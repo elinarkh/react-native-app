@@ -12,9 +12,6 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import navigate from 'react-navigation';
-import { MonoText } from '../components/StyledText';
-import PostScreen from "./PostScreen";
 
 class HomeScreen extends Component {
 
@@ -64,19 +61,6 @@ class HomeScreen extends Component {
             </TouchableOpacity>
           </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>
-            This is a tab bar. You can edit it in:
-          </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>
-              navigation/MainTabNavigator.js
-            </MonoText>
-          </View>
-        </View>
       </View>
     );
   }

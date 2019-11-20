@@ -23,7 +23,6 @@ class SignInScreen extends Component {
 
   render() {
     return (
-
       <form onSubmit={this.handleSubmit}>
         <Text>Login</Text>
 
@@ -44,7 +43,7 @@ class SignInScreen extends Component {
           onChange={this.handleChange}
         /><br/>
 
-        <Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>
+        {/*<Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>*/}
       </form>
     )
   }

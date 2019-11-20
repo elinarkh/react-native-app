@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="497ee08e-95fd-4a6d-8aa7-daabe51588a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/const.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions/postActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/postActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/authApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/authApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/postApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/postApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/PostScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/PostScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/RegOrLogScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignInScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,8 +97,16 @@
       <workItem from="1573403914633" duration="7729000" />
       <workItem from="1573488118961" duration="4818000" />
       <workItem from="1573627386702" duration="3625000" />
-      <workItem from="1574272721170" duration="3124000" />
+      <workItem from="1574272721170" duration="5536000" />
     </task>
+    <task id="LOCAL-00001" summary="add sign in screen into navigation">
+      <created>1574276085952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574276085952</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,5 +122,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add sign in screen into navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sign in screen into navigation" />
   </component>
 </project>

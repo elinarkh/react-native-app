@@ -5,6 +5,7 @@ import MainTabNavigator from './MainTabNavigator';
 import AuthLoadingScreen from "../screens/AuthLoadingScreen";
 import SignInScreen from "../screens/SignInScreen";
 import {createStackNavigator} from "react-navigation-stack";
+import PostScreen from "../screens/PostScreen";
 
 const AuthStack = createStackNavigator({ SignIn: SignInScreen, });
 

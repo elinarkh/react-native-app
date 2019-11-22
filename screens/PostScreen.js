@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as postActions from "../actions/postActions";
 import {connect} from "react-redux";
-import { View, Text } from "react-native";
+import {View, Text, StyleSheet} from "react-native";
 
 class PostScreen extends Component {
 
@@ -10,26 +10,31 @@ class PostScreen extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.id)
-    this.props.getPost(this.props.id);
+    console.log("this props before didmount" + this.props );
+    this.props.getPost(this.props.navigation.getParam('id'));
+    console.log("this props after didmount" + this.props );
   }
 
   render() {
     return (
-      <View className="post-detail">
         <View>
-          <View className="post-block">
-            <Text>{ this.props.post.title }</Text>
+            <Text>{ "hello" }</Text>
             <Text>{ this.props.post.description }</Text>
-          </View>
         </View>
-      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  getStartedContainer: {
+    alignItems: 'center',
+    marginHorizontal: 50,
+  },
+});
+
 const mapStateToProps = (state) => ({
-  post: state.post
-})
+  post: state.post.post
+});
 
 const mapDispatchToProps = {
   getPost: postActions.getPost,

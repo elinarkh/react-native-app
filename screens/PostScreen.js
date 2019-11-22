@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import * as postActions from "../actions/postActions";
 import {connect} from "react-redux";
-import {View, Text, StyleSheet} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-class PostScreen extends Component {
+class PostScreen extends Component{
 
-  constructor(props){
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount(){
     console.log("this props before didmount" + this.props );
     this.props.getPost(this.props.navigation.getParam('id'));
     console.log("this props after didmount" + this.props );
   }
 
-  render() {
+  render(){
     return (
         <View>
             <Text>{ "hello" }</Text>
@@ -38,7 +34,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getPost: postActions.getPost,
-}
+};
 
 export default connect(
   mapStateToProps,

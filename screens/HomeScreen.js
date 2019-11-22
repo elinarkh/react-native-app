@@ -45,7 +45,7 @@ class HomeScreen extends Component {
             <DevelopmentModeNotice/>
             <View>
               { this.props.posts.map(post =>
-                <TouchableHighlight id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
+                <TouchableHighlight key={post.id} id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
                 <Text style={styles.getStartedText} key={post.id}>
                   { post.title }
                 </Text>

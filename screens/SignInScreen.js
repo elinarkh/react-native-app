@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as authActions from "../actions/authActions";
-import { Text , Button} from "react-native";
+import { Text, Button, View, TextInput } from "react-native";
 
 class SignInScreen extends Component {
 
@@ -23,32 +23,28 @@ class SignInScreen extends Component {
 
   render() {
     return (
-
-      <form onSubmit={this.handleSubmit}>
+      <View>
         <Text>Login</Text>
 
-        <label>Username</label>
-        <input
-          name='username'
+        <Text>Username</Text>
+        <TextInput
           placeholder='Username'
           value={this.state.username}
           onChange={this.handleChange}
-        /><br/>
+        />
 
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
+        <Text>Password</Text>
+        <TextInput
+          secureTextEntry={true}
           placeholder='Password'
           value={this.state.password}
           onChange={this.handleChange}
-        /><br/>
-
-        <Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>
-      </form>
+        />
+      </View>
     )
   }
 }
+// {/*<Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>*/}
 
 const mapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(authActions.userLoginFetch(userInfo))

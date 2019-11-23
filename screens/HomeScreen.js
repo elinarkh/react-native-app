@@ -1,4 +1,3 @@
-import * as WebBrowser from 'expo-web-browser';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as postActions from '../actions/postActions';
@@ -8,7 +7,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   TouchableHighlight,
   View,
 } from 'react-native';
@@ -27,9 +25,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -42,23 +38,19 @@ class HomeScreen extends Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            <DevelopmentModeNotice/>
             <View>
               { this.props.posts.map(post =>
                 <TouchableHighlight key={post.id} id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
                 <Text style={styles.getStartedText}>
                   { post.title }
+                  <Image
+                    source={{uri: post.image}}
+                    style={styles.welcomeImage}
+                  />
                 </Text>
                 </TouchableHighlight>
               )}
             </View>
-          </View>
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>
-                Help, it didn’t automatically reload!
-              </Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>
@@ -69,41 +61,6 @@ class HomeScreen extends Component {
 HomeScreen.navigationOptions = {
   header: null,
 };
-
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -134,7 +91,7 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 100,
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -148,9 +105,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 25,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
+    lineHeight: 200,
     textAlign: 'center',
   },
   tabBarInfoContainer: {

@@ -30,7 +30,7 @@ export const getPosts = () => (dispatch, getState) => {
 export const getPost = (id) => (dispatch, getState) => {
 
   dispatch({
-    type: actionTypes.ACTION_GET_POSTS_STARTED
+    type: actionTypes.ACTION_GET_POST_BY_ID_STARTED
   });
 
   postApi
@@ -46,7 +46,7 @@ export const getPost = (id) => (dispatch, getState) => {
               console.log("value " + value)
               console.log("post " + JSON.parse(value))
               dispatch({
-                type: actionTypes.ACTION_GET_POSTS_SUCCESS,
+                type: actionTypes.ACTION_GET_POST_BY_ID_SUCCESS,
                 post,
               });
             }

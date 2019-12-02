@@ -18,8 +18,8 @@ const posts = (state = [], action) => {
 const post = (state = {}, action) => {
   switch (action.type) {
     case actionTypes.ACTION_GET_POST_BY_ID_SUCCESS:
-      console.log(action)
-      return {'post': action.post};
+      //console.log(action);
+      return action.post;
     case actionTypes.ACTION_GET_POST_BY_ID_FAILURE:
       return {};
     case actionTypes.ACTION_GET_POST_BY_ID_STARTED:

@@ -1,54 +1,65 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as authActions from "../actions/authActions";
-import { Text, Button, View, TextInput } from "react-native";
+import {Text, Button, View, TextInput, Platform} from "react-native";
+import {Card, Input} from "react-native-elements";
+import {userLoginFetch} from "../actions/authActions";
 
 class SignInScreen extends Component {
-
   state = {
     username: "",
     password: ""
   };
 
-  handleChange = event => {
+  handleChange = type => event => {
+    console.log(event);
     this.setState({
-      [event.target.name]: event.target.value
+      [type]: event.nativeEvent.text
     });
   };
 
   handleSubmit = event => {
-    event.preventDefault();
+    console.log(this.state);
     this.props.userLoginFetch(this.state)
   };
 
   render() {
     return (
-      <View>
-        <Text>Login</Text>
-
+      <Card>
         <Text>Username</Text>
-        <TextInput
+        <Input
           placeholder='Username'
-          value={this.state.username}
-          onChange={this.handleChange}
+          onChange={this.handleChange('username')}
         />
 
         <Text>Password</Text>
-        <TextInput
+        <Input
           secureTextEntry={true}
           placeholder='Password'
-          value={this.state.password}
-          onChange={this.handleChange}
+          onChange={this.handleChange('password')}
         />
-      </View>
+
+        <Button title={'Submit'} onPress={this.handleSubmit}/>
+      </Card>
     )
   }
 }
 // {/*<Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>*/}
 
-const mapDispatchToProps = dispatch => ({
-  userLoginFetch: userInfo => dispatch(authActions.userLoginFetch(userInfo))
-});
+SignInScreen.navigationOptions = {
+  title: 'Sign In',
+};
 
-export default connect(null, mapDispatchToProps)(SignInScreen);
+const mapToStateProps = state => {
+  return {
+    error: state.error,
+    currentUser: state.currentUser,
+  }
+};
+
+const mapDispatchToProps = {
+  userLoginFetch: userLoginFetch,
+};
+
+export default connect(mapToStateProps, mapDispatchToProps)(SignInScreen);
 

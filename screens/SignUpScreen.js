@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import * as authActions from "../actions/authActions";
-import {Button} from "react-native-web";
-import Text from "react-native-web/dist/exports/Text";
+import { View } from "react-native";
+import {Button, Text, Input, Card} from "react-native-elements";
 
 class SignUpScreen extends Component {
 
@@ -30,38 +30,31 @@ class SignUpScreen extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Text>Sign Up</Text>
-
-        <label>Username</label>
-        <input
+      <Card>
+        <Text>Username</Text>
+        <Input
           name='username'
           placeholder='Username'
-          value={this.state.username}
           onChange={this.handleChange}
-        /><br/>
+        />
 
-        <label>Password</label>
-        <input
+        <Text>Password</Text>
+        <Input
           type='password'
           name='password'
           placeholder='Password'
-          value={this.state.password}
           onChange={this.handleChange}
-        /><br/>
+        />
 
-        <label>Email</label>
-        <input
-          name='email'
-          placeholder='Email'
-          value={this.state.email}
-          onChange={this.handleChange}
-        /><br/>
-        <Button to="/"><input type='submit' value="Submit"/></Button>
-      </form>
+        <Button title={'Submit'} />
+      </Card>
     )
   }
 }
+
+SignUpScreen.navigationOptions = {
+  title: 'Sign Up',
+};
 
 const mapDispatchToProps = dispatch => ({
   userPostFetch: userInfo => dispatch(authActions.userPostFetch(userInfo))

@@ -2,12 +2,22 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import {Platform, SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {Provider} from "react-redux";
+import { ThemeProvider, colors } from 'react-native-elements';
 
 import AppNavigator from './navigation/AppNavigator';
 import configureStore from "./store";
+
+const theme = {
+  colors: {
+    ...Platform.select({
+      default: colors.platform.android,
+      ios: colors.platform.ios,
+    }),
+  },
+};
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -23,12 +33,14 @@ export default function App(props) {
     );
   } else {
     return (
-      <Provider store={store}>
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <SafeAreaView style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator />
+          </SafeAreaView>
+        </Provider>
+      </ThemeProvider>
     );
   }
 }

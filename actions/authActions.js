@@ -1,3 +1,6 @@
+import {ACTION_FAIL_USER, ACTION_LOGIN_USER, ACTION_LOGOUT_USER} from "../constants/actionTypes";
+import {login} from "../api/authApi";
+
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://5da5c7ce57f48b0014fbad58.mockapi.io/api/users", {
@@ -21,36 +24,56 @@ export const userPostFetch = user => {
     }
 };
 
+// export const userLoginFetch = user => {
+//     return dispatch => {
+//         return fetch("http://5da5c7ce57f48b0014fbad58.mockapi.io/api/userFetch", {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 Accept: 'application/json',
+//             },
+//             body: JSON.stringify({user})
+//         })
+//             .then(resp => resp.json())
+//             .then(data => {
+//                 if (data.message) {
+//                     // Here you should have logic to handle invalid login credentials.
+//                     // This assumes your Rails API will return a JSON object with a key of
+//                     // 'message' if there is an error
+//                 } else {
+//                     localStorage.setItem("token", data.jwt)
+//                     dispatch(loginUser(data.user))
+//                 }
+//             })
+//     }
+// };
+
 export const userLoginFetch = user => {
     return dispatch => {
-        return fetch("http://5da5c7ce57f48b0014fbad58.mockapi.io/api/userFetch", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            body: JSON.stringify({user})
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data.message) {
-                    // Here you should have logic to handle invalid login credentials.
-                    // This assumes your Rails API will return a JSON object with a key of
-                    // 'message' if there is an error
-                } else {
-                    localStorage.setItem("token", data.jwt)
-                    dispatch(loginUser(data.user))
-                }
-            })
+        return login(user)
+          .then(resp => {
+              return resp.status === 200;
+          })
+          .then(loggedIn => {
+              if (loggedIn) {
+                  dispatch(loginUser({username: user.username}))
+              } else {
+                  dispatch(failUser)
+              }
+          });
     }
-
-}
+};
 
 const loginUser = userObj => ({
-    type: 'LOGIN_USER',
+    type: ACTION_LOGIN_USER,
     payload: userObj
 });
 
+const failUser = {
+    type: ACTION_FAIL_USER,
+    payload: 'Login or Password are invalid',
+};
+
 export const logoutUser = () => ({
-    type: 'LOGOUT_USER'
-})
+    type: ACTION_LOGOUT_USER,
+});

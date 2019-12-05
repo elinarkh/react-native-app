@@ -26,31 +26,20 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
           <View style={styles.getStartedContainer}>
-            <View>
-              { this.props.posts.map(post =>
+            { this.props.posts.map(post =>
                 <TouchableHighlight key={post.id} id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
-                <Text style={styles.getStartedText}>
-                  { post.title }
-                  <Image
-                    source={{uri: post.image}}
-                    style={styles.welcomeImage}
-                  />
-                </Text>
+                  <View stele={styles.getStartedContainer}>
+                    <Text style={styles.getStartedText}>
+                      { post.title }
+                    </Text>
+                    <Image
+                      source={{uri: post.image}}
+                      style={styles.welcomeImage}
+                    />
+                    </View>
                 </TouchableHighlight>
-              )}
-            </View>
+            )}
           </View>
         </ScrollView>
       </View>
@@ -65,31 +54,22 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
   contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    paddingTop: 10,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
+    width: 200,
+    height: 200,
+    //resizeMode: 'contain',
   },
   getStartedContainer: {
+    padding: 20,
     alignItems: 'center',
-    marginHorizontal: 100,
+    marginHorizontal: 20,
+    marginVertical: 20,
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -105,7 +85,6 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontSize: 25,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 200,
     textAlign: 'center',
   },
   tabBarInfoContainer: {

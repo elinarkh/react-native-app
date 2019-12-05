@@ -12,9 +12,9 @@ class PostScreen extends Component{
 
   render(){
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.getStartedContainer}>
+          <Button onPress={() => this.props.navigation.navigate('Home')} title="Back" style={styles.getButton}/>
           <Text style={styles.getTitleText}>
             { this.props.post.title }
           </Text>
@@ -25,7 +25,7 @@ class PostScreen extends Component{
           <Text style={styles.getText}>
             { this.props.post.description }
           </Text>
-          <Button onPress={() => this.props.navigation.navigate('Home')} title="Back" style={styles.getButton}/>
+
         </View>
       </ScrollView>
     )
@@ -34,26 +34,24 @@ class PostScreen extends Component{
 
 const styles = StyleSheet.create({
   getStartedContainer: {
-    lineHeight: 200,
+    flex: 1,
+    paddingTop: 60,
     alignItems: 'center',
-    marginHorizontal: 50,
   },
   getTitleText: {
     fontSize: 25,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 100,
     textAlign: 'center',
   },
   getText: {
     fontSize: 15,
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
+    padding: 20,
   },
   getButton: {
     fontSize: 20,
     color: 'rgba(96,100,109, 1)',
-    textAlign: 'left',
-    marginLeft: -100,
   },
   welcomeImage: {
     width: 200,

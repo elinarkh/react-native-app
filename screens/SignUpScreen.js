@@ -1,70 +1,78 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import * as authActions from "../actions/authActions";
-import {Button} from "react-native-web";
-import Text from "react-native-web/dist/exports/Text";
+import { View } from "react-native";
+import {Button, Text, Input, Card} from "react-native-elements";
+import {userRegisterFetch} from "../actions/authActions";
 
 class SignUpScreen extends Component {
 
   state = {
-    username: "",
-    password: "",
-    email: ""
+    username: '',
+    password: '',
+    confirmPassword: '',
   };
 
-  componentWillMount() {
-    console.log('Component will mount!')
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.auth.authenticated) {
+      this.props.navigation.navigate('Main');//.catch(reason => console.error(reason)).then(value => console.log(value));
+    }
   }
 
-  handleChange = event => {
+  handleChange = type => event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [type]: event.nativeEvent.text
     });
   };
 
   handleSubmit = event => {
-    console.log(this.state)
-    event.preventDefault();
-    this.props.userPostFetch(this.state)
+    this.props.userRegisterFetch(this.state)
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Text>Sign Up</Text>
-
-        <label>Username</label>
-        <input
+      <Card>
+        <Text>Username</Text>
+        <Input
           name='username'
           placeholder='Username'
-          value={this.state.username}
-          onChange={this.handleChange}
-        /><br/>
+          onChange={this.handleChange('username')}
+        />
 
-        <label>Password</label>
-        <input
-          type='password'
+        <Text>Password</Text>
+        <Input
+          secureTextEntry={true}
           name='password'
           placeholder='Password'
-          value={this.state.password}
-          onChange={this.handleChange}
-        /><br/>
+          onChange={this.handleChange('password')}
+        />
 
-        <label>Email</label>
-        <input
-          name='email'
-          placeholder='Email'
-          value={this.state.email}
-          onChange={this.handleChange}
-        /><br/>
-        <Button to="/"><input type='submit' value="Submit"/></Button>
-      </form>
+        <Text>Confirm password</Text>
+        <Input
+          secureTextEntry={true}
+          name='confirmPassword'
+          placeholder='Confirm password'
+          onChange={this.handleChange('confirmPassword')}
+        />
+
+        <Text>{this.props.auth.error && this.props.auth.error}</Text>
+
+        <Button onPress={this.handleSubmit} title={'Submit'} />
+      </Card>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  userPostFetch: userInfo => dispatch(authActions.userPostFetch(userInfo))
+SignUpScreen.navigationOptions = {
+  title: 'Sign Up',
+};
+
+const mapStateToProps = state => ({
+  ...state.auth,
 });
 
-export default connect(null, mapDispatchToProps)(SignUpScreen);
+const mapDispatchToProps = ({
+  userRegisterFetch: userRegisterFetch,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpScreen);

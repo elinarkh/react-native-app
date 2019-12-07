@@ -1,5 +1,7 @@
 import {ACTION_FAIL_USER, ACTION_LOGIN_USER, ACTION_LOGOUT_USER} from "../constants/actionTypes";
-import {login, register, tokenize} from "../api/authApi";
+import {login, me, register, signedIn, tokenize} from "../api/authApi";
+import {AsyncStorage} from "react-native";
+import {TOKEN_KEY} from "../const";
 
 export const userPostFetch = user => {
     return dispatch => {
@@ -89,6 +91,33 @@ export const userRegisterFetch = user => {
       }).catch(reason => {
         dispatch(failUser(JSON.stringify(reason)));
       });
+    }
+  };
+};
+
+export const checkUser = () => {
+  return async dispatch => {
+    try {
+      const token = await AsyncStorage.getItem(TOKEN_KEY);
+      console.log('```', token);
+      if (!token) {
+        return dispatch(logoutUser());
+      } else {
+        const response = await me(token);
+        if (response.status === 200) {
+          const body = await response.json();
+          const user = {
+            username: body.data.username,
+            token: token,
+          };
+          console.log(user);
+          return dispatch(loginUser(user));
+        } else {
+          dispatch(logoutUser());
+        }
+      }
+    } catch(e) {
+      failUser(JSON.stringify(e));
     }
   };
 };

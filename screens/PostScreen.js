@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as postActions from "../actions/postActions";
 import {connect} from "react-redux";
 import {View, Text, StyleSheet, ScrollView, Image, Button} from "react-native";
+import {Card} from "react-native-elements";
 
 
 class PostScreen extends Component{
@@ -13,7 +14,7 @@ class PostScreen extends Component{
   render(){
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <View style={styles.getStartedContainer}>
+        <Card style={styles.getStartedContainer}>
           <Button onPress={() => this.props.navigation.navigate('Home')} title="Back" style={styles.getButton}/>
           <Text style={styles.getTitleText}>
             { this.props.post.title }
@@ -25,8 +26,7 @@ class PostScreen extends Component{
           <Text style={styles.getText}>
             { this.props.post.description }
           </Text>
-
-        </View>
+        </Card>
       </ScrollView>
     )
   }

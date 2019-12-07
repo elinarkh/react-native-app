@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   welcomeImage: {
     width: 200,
     height: 200,
-    //resizeMode: 'contain',
+    resizeMode: 'contain',
   },
   getStartedContainer: {
     padding: 20,

@@ -1,19 +1,26 @@
-import {API_URL, MOCK_API} from "../const";
+import {API_URL, MOCK_API, TOKEN_KEY} from "../const";
+import {AsyncStorage} from "react-native";
 
-export const getPosts = (token) => (
+export const getPosts = async () => (
   fetch(
-    `${MOCK_API}/posts`,
+    `${API_URL}/events`,
     {
       method: 'GET',
+      headers: {
+        Authorization: `Basic ${await AsyncStorage.getItem(TOKEN_KEY)}`
+      }
     }
   )
 );
 
-export const getPost = (id) => (
+export const getPost = async (id) => (
   fetch(
-    `${MOCK_API}/posts/${id}`,
+    `${API_URL}/events/${id}`,
     {
       method: 'GET',
+      headers: {
+        Authorization: `Basic ${await AsyncStorage.getItem(TOKEN_KEY)}`
+      }
     }
   )
 );

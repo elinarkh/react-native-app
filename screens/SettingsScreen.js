@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import {Card} from "react-native-elements";
+import {Card, Text} from "react-native-elements";
 import {Button} from "react-native-elements";
 import View from "react-native-web/dist/exports/View";
 import {userLoginFetch, userLogout} from "../actions/authActions";
 import {connect} from "react-redux";
+import {StyleSheet} from "react-native";
 
 class SettingsScreen extends Component {
 
@@ -32,6 +33,7 @@ class SettingsScreen extends Component {
   render() {
     return (
       <Card>
+        <Text style={styles.text}>{`Welcome, ${this.props.auth.currentUser.username}!`}</Text>
         <Button title={'Logout'} onPress={this.handleLogout}/>
       </Card>
     )
@@ -51,3 +53,9 @@ SettingsScreen.navigationOptions = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);
+
+const styles = StyleSheet.create({
+  text: {
+    marginBottom: 10,
+  },
+});

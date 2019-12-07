@@ -1,8 +1,10 @@
-import {API_URL} from "../const";
+import {API_URL, TOKEN_KEY} from "../const";
+import {AsyncStorage} from "react-native";
+import base64 from 'react-native-base64'
 
-const tokenize = (username, password) => {
-  const token = `${username}:${password}`
-  return `Basic ${btoa(token)}`;
+export const tokenize = (username, password) => {
+  const token = `${username}:${password}`;
+  return `${base64.encode(token)}`;
 };
 
 export const login = (userInfo) => fetch(
@@ -10,7 +12,7 @@ export const login = (userInfo) => fetch(
   {
     method: 'GET',
     headers: {
-      'Authorization': tokenize(userInfo.username, userInfo.password),
+      'Authorization': `Basic ${tokenize(userInfo.username, userInfo.password)}`,
     }
   }
 );
@@ -26,3 +28,19 @@ export const me = (token) => (
     }
   )
 );
+
+
+export const signedIn = async () => {
+  try {
+    const token = await AsyncStorage.getItem(TOKEN_KEY);
+    if (!token) {
+      return false;
+    } else {
+      const response = me(token);
+      return (response.status !== 200);
+    }
+  } catch(e) {
+    console.error(e);
+    throw e;
+  }
+};

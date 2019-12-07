@@ -1,5 +1,5 @@
 import {ACTION_FAIL_USER, ACTION_LOGIN_USER, ACTION_LOGOUT_USER} from "../constants/actionTypes";
-import {login} from "../api/authApi";
+import {login, tokenize} from "../api/authApi";
 
 export const userPostFetch = user => {
     return dispatch => {
@@ -56,12 +56,20 @@ export const userLoginFetch = user => {
           })
           .then(loggedIn => {
               if (loggedIn) {
-                  dispatch(loginUser({username: user.username}))
+                  dispatch(loginUser({token: tokenize(user.username, user.password), username: user.username}))
               } else {
                   dispatch(failUser)
               }
+          }).catch(reason => {
+              console.error(reason);
           });
     }
+};
+
+export const userLogout = () => {
+  return dispatch => {
+    dispatch(logoutUser());
+  };
 };
 
 const loginUser = userObj => ({

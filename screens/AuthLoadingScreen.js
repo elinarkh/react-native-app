@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Text from "react-native-web/dist/exports/Text";
 import {me} from "../api/authApi";
+import {connect} from "react-redux";
 
 class AuthLoadingScreen extends React.Component {
     componentDidMount() {
@@ -49,4 +50,12 @@ class AuthLoadingScreen extends React.Component {
     }
 }
 
-export default AuthLoadingScreen;
+const mapToStateProps = state => {
+  return {
+    error: state.error,
+    currentUser: state.currentUser,
+    authenticated: state.authenticated,
+  }
+};
+
+export default connect(mapToStateProps, null)(AuthLoadingScreen);

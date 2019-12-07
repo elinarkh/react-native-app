@@ -4,6 +4,7 @@ import * as authActions from "../actions/authActions";
 import {Text, Button, View, TextInput, Platform} from "react-native";
 import {Card, Input} from "react-native-elements";
 import {userLoginFetch} from "../actions/authActions";
+import {signedIn} from "../api/authApi";
 
 class SignInScreen extends Component {
   state = {
@@ -11,17 +12,28 @@ class SignInScreen extends Component {
     password: ""
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+    signedIn()
+      .then(signedIn => (this.props.auth.authenticated = signedIn))
+      .catch(reason => console.error(reason));
+  }
+
   handleChange = type => event => {
-    console.log(event);
     this.setState({
       [type]: event.nativeEvent.text
     });
   };
 
   handleSubmit = event => {
-    console.log(this.state);
     this.props.userLoginFetch(this.state)
   };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.auth.authenticated) {
+      this.props.navigation.navigate('Main');//.catch(reason => console.error(reason)).then(value => console.log(value));
+    }
+  }
 
   render() {
     return (
@@ -39,27 +51,23 @@ class SignInScreen extends Component {
           onChange={this.handleChange('password')}
         />
 
+        <Text>{this.props.auth.error && this.props.auth.error}</Text>
+
         <Button title={'Submit'} onPress={this.handleSubmit}/>
       </Card>
     )
   }
 }
-// {/*<Button onPress{()=> this.props.navigation('HomeScreen')}><input type='submit'/></Button>*/}
 
 SignInScreen.navigationOptions = {
   title: 'Sign In',
 };
 
-const mapToStateProps = state => {
-  return {
-    error: state.error,
-    currentUser: state.currentUser,
-  }
-};
-
+const mapStateToProps = state => ({
+  ...state.auth,
+});
 const mapDispatchToProps = {
   userLoginFetch: userLoginFetch,
 };
 
-export default connect(mapToStateProps, mapDispatchToProps)(SignInScreen);
-
+export default connect(mapStateToProps, mapDispatchToProps)(SignInScreen);

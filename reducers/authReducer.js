@@ -1,19 +1,25 @@
 import {combineReducers} from "redux";
 import {ACTION_FAIL_USER, ACTION_LOGIN_USER, ACTION_LOGOUT_USER} from "../constants/actionTypes";
 import {withError} from "./common";
+import {TOKEN_KEY} from "../const";
+import {AsyncStorage} from 'react-native';
 
 const initialState = withError({
-    currentUser: {}
+    currentUser: {},
+    authenticated: false,
 });
 
 const auth = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_LOGIN_USER:
-            return {...state, currentUser: action.payload};
+            AsyncStorage.setItem(TOKEN_KEY, action.payload.token);
+            return {...state, currentUser: action.payload, authenticated: true, error: ''};
         case ACTION_LOGOUT_USER:
-            return {...state, currentUser: {} };
+            AsyncStorage.removeItem(TOKEN_KEY);
+            return {...state, currentUser: {}, authenticated: false, error: '' };
         case ACTION_FAIL_USER:
-            return {...state, error: action.payload};
+            AsyncStorage.removeItem(TOKEN_KEY);
+            return {...state, error: action.payload, authenticated: false};
         default:
             return state;
     }

@@ -16,7 +16,7 @@ export default createAppContainer(
             Post: PostScreen,
             Auth: AuthTabNavigator,
         }, {
-            initialRouteName: 'AuthLoading',
+            initialRouteName: 'Auth',
         }
     )
 );

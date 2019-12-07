@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497ee08e-95fd-4a6d-8aa7-daabe51588a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/navigation/AuthTabNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reducers/common.js" afterDir="false" />
+    <list default="true" id="497ee08e-95fd-4a6d-8aa7-daabe51588a3" name="Default Changelist" comment="implement signIn tab">
+      <change afterPath="$PROJECT_DIR$/api/Base64.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/authActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/authApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/authApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/const.js" beforeDir="false" afterPath="$PROJECT_DIR$/const.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/MainTabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/MainTabNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/reducers/authReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SettingsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUpScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +105,7 @@
       <workItem from="1573488118961" duration="4818000" />
       <workItem from="1573627386702" duration="3625000" />
       <workItem from="1574272721170" duration="5536000" />
+      <workItem from="1575639667734" duration="11305000" />
     </task>
     <task id="LOCAL-00001" summary="add sign in screen into navigation">
       <created>1574276085952</created>
@@ -124,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574461574488</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implement signIn tab">
+      <created>1575496907050</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575496907050</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add sign in screen into navigation" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ElinaRakhimzhanova/react-native-app&#10;&#10;# Conflicts:&#10;#&#9;api/postApi.js&#10;#&#9;navigation/AppNavigator.js&#10;#&#9;screens/HomeScreen.js&#10;#&#9;screens/PostScreen.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ElinaRakhimzhanova/react-native-app&#10;&#10;# Conflicts:&#10;#&#9;api/postApi.js&#10;#&#9;navigation/AppNavigator.js&#10;#&#9;screens/HomeScreen.js&#10;#&#9;screens/PostScreen.js" />
+    <MESSAGE value="implement signIn tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement signIn tab" />
   </component>
 </project>

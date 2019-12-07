@@ -15,6 +15,7 @@ export const getPosts = () => (dispatch, getState) => {
           .text()
           .then(
             value => {
+              console.log(value);
               const posts = JSON.parse(value);
               console.log(posts);
               dispatch({

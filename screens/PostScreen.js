@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => ({
-  post: state.post.post
+  post: state.post.post,
+  ...state.auth,
 });
 
 const mapDispatchToProps = {

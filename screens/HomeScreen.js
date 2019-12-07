@@ -14,11 +14,11 @@ import {
 class HomeScreen extends Component {
 
   constructor(props){
-    super(props)
+    super(props);
+    console.log(props);
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.props.getPosts();
   }
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => ({
-  posts: state.post.posts
+  posts: state.post.posts,
 });
 
 const mapDispatchToProps = {

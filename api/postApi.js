@@ -1,8 +1,8 @@
-import {API_URL} from "../const";
+import {API_URL, MOCK_API} from "../const";
 
-export const getPosts = () => (
+export const getPosts = (token) => (
   fetch(
-    `${API_URL}/posts`,
+    `${MOCK_API}/posts`,
     {
       method: 'GET',
     }
@@ -11,7 +11,7 @@ export const getPosts = () => (
 
 export const getPost = (id) => (
   fetch(
-    `${API_URL}/posts/${id}`,
+    `${MOCK_API}/posts/${id}`,
     {
       method: 'GET',
     }

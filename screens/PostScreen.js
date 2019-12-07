@@ -14,7 +14,7 @@ class PostScreen extends Component{
   render(){
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Card style={styles.getStartedContainer}>
+        <Card containerStyle={styles.container}>
           <Button onPress={() => this.props.navigation.navigate('Home')} title="Back" style={styles.getButton}/>
           <Text style={styles.getTitleText}>
             { this.props.post.title }
@@ -33,6 +33,14 @@ class PostScreen extends Component{
 }
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    marginTop: 50,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   getStartedContainer: {
     flex: 1,
     paddingTop: 60,

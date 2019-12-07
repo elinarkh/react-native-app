@@ -7,11 +7,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import {Platform} from "react-native";
 import React from "react";
 
-const createStack = (screen, label) => {
-  const stack = createStackNavigator({
-    SignIn: screen,
-  });
-
+const createStack = (label, stack) => {
   stack.navigationOptions = {
     tabBarLabel: label,
     tabBarIcon: ({ focused }) => (
@@ -29,6 +25,10 @@ const createStack = (screen, label) => {
 };
 
 export default createBottomTabNavigator({
-  SignIn: createStack(SignInScreen, 'Sign In'),
-  SignUp: createStack(SignUpScreen, 'Sign up'),
+  SignIn: createStack('Sign In', createStackNavigator({
+    SignIn: SignInScreen,
+  })),
+  SignUp: createStack('Sign up', createStackNavigator({
+    SignUp: SignUpScreen,
+  })),
 });

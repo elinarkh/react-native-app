@@ -37,24 +37,26 @@ class SignInScreen extends Component {
 
   render() {
     return (
-      <Card>
-        <Text>Username</Text>
-        <Input
-          placeholder='Username'
-          onChange={this.handleChange('username')}
-        />
+      <View>
+        <Card>
+          <Text>Username</Text>
+          <Input
+            placeholder='Username'
+            onChange={this.handleChange('username')}
+          />
 
-        <Text>Password</Text>
-        <Input
-          secureTextEntry={true}
-          placeholder='Password'
-          onChange={this.handleChange('password')}
-        />
+          <Text>Password</Text>
+          <Input
+            secureTextEntry={true}
+            placeholder='Password'
+            onChange={this.handleChange('password')}
+          />
 
-        <Text>{this.props.auth.error && this.props.auth.error}</Text>
+          <Text>{this.props.auth.error && this.props.auth.error}</Text>
 
-        <Button title={'Submit'} onPress={this.handleSubmit}/>
-      </Card>
+          <Button title={'Submit'} onPress={this.handleSubmit}/>
+        </Card>
+      </View>
     )
   }
 }

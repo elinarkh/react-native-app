@@ -5,6 +5,9 @@ import MainTabNavigator from './MainTabNavigator';
 import AuthTabNavigator from "./AuthTabNavigator";
 import AuthLoadingScreen from "../screens/AuthLoadingScreen";
 import PostScreen from "../screens/PostScreen";
+import SignUpScreen from "../screens/SignUpScreen";
+import SignInScreen from "../screens/SignInScreen";
+import {createStackNavigator} from "react-navigation-stack";
 
 export default createAppContainer(
     createSwitchNavigator(

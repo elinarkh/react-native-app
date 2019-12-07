@@ -17,6 +17,16 @@ export const login = (userInfo) => fetch(
   }
 );
 
+export const register = (userInfo) => {
+  return fetch(
+    `${API_URL}/users/register`,
+    {
+      method: 'POST',
+      body: JSON.stringify(userInfo),
+    }
+  );
+};
+
 export const me = (token) => (
   fetch(
     `${API_URL}/users/me`,

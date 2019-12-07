@@ -10,6 +10,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import {Card} from "react-native-elements";
 
 class HomeScreen extends Component {
 
@@ -29,7 +30,7 @@ class HomeScreen extends Component {
           <View style={styles.getStartedContainer}>
             { this.props.posts.map(post =>
                 <TouchableHighlight key={post.id} id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
-                  <View stele={styles.getStartedContainer}>
+                  <Card stele={styles.getStartedContainer}>
                     <Text style={styles.getStartedText}>
                       { post.title }
                     </Text>
@@ -37,7 +38,7 @@ class HomeScreen extends Component {
                       source={{uri: post.image}}
                       style={styles.welcomeImage}
                     />
-                    </View>
+                    </Card>
                 </TouchableHighlight>
             )}
           </View>

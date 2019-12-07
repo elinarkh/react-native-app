@@ -5,6 +5,7 @@ import {Text, Button, View, TextInput, Platform} from "react-native";
 import {Card, Input} from "react-native-elements";
 import {userLoginFetch} from "../actions/authActions";
 import {signedIn} from "../api/authApi";
+import {checkUser} from "../actions/authActions";
 
 class SignInScreen extends Component {
   state = {
@@ -14,9 +15,10 @@ class SignInScreen extends Component {
 
   componentDidMount() {
     console.log('componentDidMount');
-    signedIn()
-      .then(signedIn => (this.props.auth.authenticated = signedIn))
-      .catch(reason => console.error(reason));
+    this.props.checkUser();
+    // signedIn()
+    //   .then(signedIn => (this.props.auth.authenticated = signedIn))
+    //   .catch(reason => console.error(reason));
   }
 
   handleChange = type => event => {
@@ -70,6 +72,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
   userLoginFetch: userLoginFetch,
+  checkUser: checkUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInScreen);

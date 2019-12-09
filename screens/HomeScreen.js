@@ -11,13 +11,16 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import {Card} from "react-native-elements";
+import {Card, SearchBar} from "react-native-elements";
 
 class HomeScreen extends Component {
 
   constructor(props){
     super(props);
     this.handleCreatePost = this.handleCreatePost.bind(this);
+    this.state = {
+      search: ''
+    };
   }
 
   componentDidMount() {
@@ -29,13 +32,27 @@ class HomeScreen extends Component {
     this.props.createPost(data);
   }
 
+  filterUpdate = search => {
+    this.setState({ search });
+  };
+
   render() {
-    const { photo } = this.state
+    const { search } = this.state;
+    let filteredPosts = this.props.posts.filter(
+      (post) => {
+        return post.title.indexOf(this.state.search) !== -1;
+      }
+    );
     return (
       <View style={styles.container}>
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={this.filterUpdate}
+          value={search}
+        />
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.getStartedContainer}>
-            { this.props.posts.map(post =>
+            { filteredPosts.map(post =>
                 <TouchableHighlight key={post.id} id={post.id} onPress={() => this.props.navigation.navigate('Post', {id: post.id})} underlayColor='#F5FCFF'>
                   <Card stele={styles.getStartedContainer}>
                     <Text style={styles.getStartedText}>

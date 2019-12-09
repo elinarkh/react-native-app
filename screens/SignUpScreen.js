@@ -12,6 +12,7 @@ class SignUpScreen extends Component {
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("state", this.state);
     if (this.props.auth.authenticated) {
       console.log("perehod to login", this.props.auth)
       this.props.navigation.navigate('Main');

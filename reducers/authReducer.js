@@ -12,14 +12,17 @@ const initialState = withError({
 const auth = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_LOGIN_USER:
+            console.log("it's action login user", action);
             AsyncStorage.setItem(TOKEN_KEY, action.payload.token);
             return {...state, currentUser: action.payload, authenticated: true, error: ''};
         case ACTION_LOGOUT_USER:
             AsyncStorage.removeItem(TOKEN_KEY);
-            return {...state, currentUser: {}, authenticated: false, error: '' };
+            return {...state, currentUser: {}, authenticated: false, error: ''};
         case ACTION_FAIL_USER:
+            console.log("it's action fail user", action);
             AsyncStorage.removeItem(TOKEN_KEY);
             return {...state, error: action.payload, authenticated: false};
+
         default:
             return state;
     }

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import * as authActions from "../actions/authActions";
 import {Text, Button, View, TextInput, Platform} from "react-native";
 import {Card, Input} from "react-native-elements";
 import {userLoginFetch} from "../actions/authActions";
-import {signedIn} from "../api/authApi";
 import {checkUser} from "../actions/authActions";
 
 class SignInScreen extends Component {
@@ -14,7 +12,7 @@ class SignInScreen extends Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
+    console.log('componentDidMount SIGNIN');
     this.props.checkUser();
     // signedIn()
     //   .then(signedIn => (this.props.auth.authenticated = signedIn))

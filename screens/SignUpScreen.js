@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import * as authActions from "../actions/authActions";
-import { View } from "react-native";
 import {Button, Text, Input, Card} from "react-native-elements";
 import {userRegisterFetch} from "../actions/authActions";
 
@@ -15,7 +13,8 @@ class SignUpScreen extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.auth.authenticated) {
-      this.props.navigation.navigate('Main');//.catch(reason => console.error(reason)).then(value => console.log(value));
+      console.log("perehod to login", this.props.auth)
+      this.props.navigation.navigate('Main');
     }
   }
 
@@ -26,7 +25,8 @@ class SignUpScreen extends Component {
   };
 
   handleSubmit = event => {
-    this.props.userRegisterFetch(this.state)
+    console.log("this.state", this.state);
+    this.props.userRegisterFetch(this.state);
   };
 
   render() {

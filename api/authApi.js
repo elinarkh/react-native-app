@@ -1,4 +1,4 @@
-import {API_URL, TOKEN_KEY} from "../const";
+import {API_URL, MOCK_API, TOKEN_KEY} from "../const";
 import {AsyncStorage} from "react-native";
 import base64 from 'react-native-base64'
 
@@ -18,6 +18,7 @@ export const login = (userInfo) => fetch(
 );
 
 export const register = (userInfo) => {
+  console.log("rega", userInfo);
   return fetch(
     `${API_URL}/users/register`,
     {
@@ -38,7 +39,6 @@ export const me = (token) => (
     }
   )
 );
-
 
 export const signedIn = async () => {
   try {

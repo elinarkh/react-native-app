@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497ee08e-95fd-4a6d-8aa7-daabe51588a3" name="Default Changelist" comment="">
+    <list default="true" id="497ee08e-95fd-4a6d-8aa7-daabe51588a3" name="Default Changelist" comment="merge with master">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/postActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/postActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/authApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/authApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/postApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/postApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/MainTabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/MainTabNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/reducers/authReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/PostScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/PostScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SettingsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUpScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +55,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -102,6 +113,8 @@
       <workItem from="1573627386702" duration="3625000" />
       <workItem from="1574272721170" duration="5536000" />
       <workItem from="1575639667734" duration="18376000" />
+      <workItem from="1575820868882" duration="12950000" />
+      <workItem from="1575839454468" duration="4472000" />
     </task>
     <task id="LOCAL-00001" summary="add sign in screen into navigation">
       <created>1574276085952</created>

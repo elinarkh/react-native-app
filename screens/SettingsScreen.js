@@ -47,7 +47,7 @@ const mapStateToProps = state => ({
 });
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
+  title: 'Sign Out',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);

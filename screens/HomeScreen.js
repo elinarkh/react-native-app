@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as postActions from '../actions/postActions';
 import {
+  Button,
   Image,
   Platform,
   ScrollView,
@@ -16,14 +17,20 @@ class HomeScreen extends Component {
 
   constructor(props){
     super(props);
-    console.log(props);
+    this.handleCreatePost = this.handleCreatePost.bind(this);
   }
 
   componentDidMount() {
     this.props.getPosts();
   }
 
+  handleCreatePost() {
+    let data = {};
+    this.props.createPost(data);
+  }
+
   render() {
+    const { photo } = this.state
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -43,6 +50,7 @@ class HomeScreen extends Component {
             )}
           </View>
         </ScrollView>
+        <Button title={"Add new event"} onPress={this.handleCreatePost}/>
       </View>
     );
   }
@@ -134,7 +142,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getPosts: postActions.getPosts
+  getPosts: postActions.getPosts,
+  createPost: postActions.createPost
 };
 
 export default connect(

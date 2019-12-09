@@ -14,7 +14,7 @@ class PostScreen extends Component{
   render(){
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Card style={styles.getStartedContainer}>
+        <View style={styles.getStartedContainer}>
           <Button onPress={() => this.props.navigation.navigate('Home')} title="Back" style={styles.getButton}/>
           <Text style={styles.getTitleText}>
             { this.props.post.title }
@@ -26,7 +26,7 @@ class PostScreen extends Component{
           <Text style={styles.getText}>
             { this.props.post.description }
           </Text>
-        </Card>
+        </View>
       </ScrollView>
     )
   }

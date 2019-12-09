@@ -17,3 +17,19 @@ export const getPost = (id) => (
     }
   )
 );
+
+export const createPost = (data) => (
+  fetch(
+    `${MOCK_API}/posts/`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        title: data.title,
+        body: data.body,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8;"
+      }
+    }
+  )
+)

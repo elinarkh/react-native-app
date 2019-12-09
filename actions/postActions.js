@@ -53,3 +53,30 @@ export const getPost = (id) => (dispatch, getState) => {
     )
 };
 
+export const createPost = (data) => (dispatch, getState) => {
+
+  dispatch({
+    type: actionTypes.ACTION_CREATE_POST_STARTED
+  });
+
+  postApi
+    .createPost(data)
+    .then(
+      response => {
+        response
+          .text()
+          .then(
+            value => {
+              const responseObject = JSON.parse(value);
+              console.log(responseObject);
+              dispatch({
+                type: actionTypes.ACTION_CREATE_POST_SUCCESS,
+                post: responseObject,
+                posts: getState().post.posts
+              });
+            }
+          );
+      }
+    )
+};
+
